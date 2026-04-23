@@ -42,11 +42,13 @@ st.divider()
 st.subheader("Ultimi Movimenti")
 
 # Visualizzazione sicura: se il foglio è vuoto non crasha
+st.divider()
+st.subheader("Debug Connessione")
+
 try:
     df_visualizzazione = conn.read()
-    if not df_visualizzazione.empty:
-        st.dataframe(df_visualizzazione.tail(5), width='stretch')
-    else:
-        st.info("Nessun dato registrato al momento.")
-except:
-    st.warning("In attesa di dati dal foglio Google...")
+    st.write("Connessione riuscita!")
+    st.dataframe(df_visualizzazione.tail(5), width='stretch')
+except Exception as e:
+    st.error("Errore Tecnico Rilevato:")
+    st.code(str(e)) # Questo ci dirà l'errore esatto (es. 403 Forbidden o 404 Not Found)
