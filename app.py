@@ -5,7 +5,7 @@ from datetime import datetime
 
 # --- CONFIGURAZIONE ---
 # INCOLLA QUI IL TUO LINK DI GOOGLE SHEETS
-URL_FOGLIO = "https://docs.google.com/spreadsheets/d/IL_TUO_ID_FOGLIO/edit?usp=sharing"
+URL_FOGLIO = "https://docs.google.com/spreadsheets/d/17o-WyY0JpSRIc9uiloz8Z-GpQvMw_IlZqa5RIXD9i0s/edit?usp=sharing"
 # ----------------------
 
 st.set_page_config(page_title="Gestione 79€", layout="centered")
