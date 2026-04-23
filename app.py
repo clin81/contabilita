@@ -14,7 +14,8 @@ conn = st.connection("gsheets", type=GSheetsConnection)
 tipo = st.selectbox("Documento", ["Ricevuta", "Fattura"])
 metodo = st.radio("Metodo di Pagamento", ["Contanti", "Bancomat", "RiBa", "Bonifico"], horizontal=True)
 
-if st.button("Registra Pagamento (79.00 €)", use_container_width=True):
+# NOTA: Cambiato use_container_width con width='stretch' come richiesto dai log 2026
+if st.button("Registra Pagamento (79.00 €)", width='stretch'):
     # Creazione nuovo record
     nuova_riga = pd.DataFrame([{
         "Data": datetime.now().strftime("%d/%m/%Y %H:%M"),
@@ -35,4 +36,5 @@ if st.button("Registra Pagamento (79.00 €)", use_container_width=True):
 # Mostra gli ultimi inserimenti
 st.divider()
 st.subheader("Ultimi Movimenti")
-st.dataframe(conn.read().tail(5), use_container_width=True)
+# Anche qui aggiornato il parametro larghezza
+st.dataframe(conn.read().tail(5), width='stretch')
